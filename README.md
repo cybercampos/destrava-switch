@@ -7,5 +7,5 @@
 ## Isso é legal?
 ### Para informações legais, consulte o arquivo "AVISO_LEGAL.txt". 
 ## Informações de Copyright
-### Este programa está licenciado pela licença GPL3 (GNU Public License 3).
+### Este programa está licenciado sob a licença GPL3 (GNU Public License 3).
 ### Licenças dos outros programas (CNX Pack, hekate, atmosphère) se aplicam de acordo.
