@@ -1,27 +1,23 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Update CNX Pack
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Initialize Git repository (if not exists)
+        run: |
+          git init
+          git remote add origin https://github.com/AMSNX/CNX.git
 
       - name: Install dependencies
         run: |
@@ -57,4 +53,4 @@ jobs:
         run: |
           git add .
           git commit -m "Update CNX Pack"
-          git push
+          git push -u origin main
