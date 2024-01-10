@@ -40,13 +40,15 @@ jobs:
         run: |
           tar -czvf cyber_destrava.tar.gz *
           find . -type f ! -name 'cyber_destrava.tar.gz' -exec rm {} +
+          mkdir destrava
+          mv cyber_destrava.tar.gz destrava/
           
       - name: Pushes to Repository
         uses: tech-thinker/push-to-repo@main        
         with:
           user-name: "github-actions[bot]"
           user-email: github-actions[bot]@users.noreply.github.com
-          source-directory: "."
+          source-directory: "destrava"
           destination-github-username: "cybercampos"
           destination-repository-name: "destrava-switch"
           target-branch: main
