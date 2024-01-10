@@ -18,7 +18,7 @@ jobs:
         run: |
           if [ -z "$(git remote -v)" ]; then
             git init
-            git remote add origin https://github.com/AMSNX/CNX.git
+            git remote add origin https://github.com/cybercampos/destrava-switch.git
           fi
 
       - name: Install dependencies
