@@ -48,7 +48,7 @@ jobs:
         with:
           user-name: "github-actions[bot]"
           user-email: github-actions[bot]@users.noreply.github.com
-          source-directory: "destrava"
+          source-directory: "destrava-switch"
           destination-github-username: "cybercampos"
           destination-repository-name: "destrava-switch"
           target-branch: main
