@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      API_TOKEN_GITHUB: ${{ secrets.GIT_PAT_TOKEN }}
+      API_TOKEN_GITHUB: ${{ secrets.CYBER_BOT_KEY }}
     steps:
       - uses: actions/checkout@v3
       - uses: tech-thinker/push-to-repo@main
@@ -40,17 +40,12 @@ jobs:
         run: |
           tar -czvf cyber_destrava.tar.gz *
           find . -type f ! -name 'cyber_destrava.tar.gz' -exec rm {} +
-          mkdir destrava
-          mv cyber_destrava.tar.gz destrava/
+          mv cyber_destrava.tar.gz
           
-      - name: Pushes to Repository
-        uses: tech-thinker/push-to-repo@main        
-        with:
-          user-name: "github-actions[bot]"
-          user-email: github-actions[bot]@users.noreply.github.com
-          source-directory: "destrava-switch"
-          destination-github-username: "cybercampos"
-          destination-repository-name: "destrava-switch"
-          target-branch: main
-                
-      
+      - name: Push to Repo
+        run: |
+          git config user.name "CyberCamposBot"
+          git config user.password "${{ secrets.CYBER_BOT_KEY }}"
+          git config user.email "CyberCamposBot@users.noreply.github.com"
+          git commit -am "Update CNX"
+          git push
