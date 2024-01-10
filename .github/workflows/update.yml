@@ -10,7 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      API_TOKEN_GITHUB: ${{ secrets.GIT_PAT_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: tech-thinker/push-to-repo@main
@@ -41,9 +42,7 @@ jobs:
           find . -type f ! -name 'cyber_destrava.tar.gz' -exec rm {} +
           
       - name: Pushes to Repository
-        uses: tech-thinker/push-to-repo@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.GIT_PAT_TOKEN }}
+        uses: tech-thinker/push-to-repo@main        
         with:
           user-name: "github-actions[bot]"
           user-email: github-actions[bot]@users.noreply.github.com
