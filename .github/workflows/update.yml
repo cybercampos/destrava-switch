@@ -14,7 +14,6 @@ jobs:
       API_TOKEN_GITHUB: ${{ secrets.CYBER_BOT_KEY }}
     steps:
       - uses: actions/checkout@v3
-      - uses: tech-thinker/push-to-repo@main
 
       - name: Install dependencies
         run: |
