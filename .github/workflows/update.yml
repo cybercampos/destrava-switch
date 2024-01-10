@@ -14,13 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Initialize Git repository (if not exists)
-        run: |
-          if [ -z "$(git remote -v)" ]; then
-            git init
-            git remote add origin https://github.com/cybercampos/destrava-switch.git
-          fi
-
       - name: Install dependencies
         run: |
           sudo apt install -y unzip jq
