@@ -45,6 +45,7 @@ jobs:
           git clone https://github.com/cybercampos/destrava-switch/ destrava/
           mv cyber_destrava.tar.gz destrava/
           cd destrava/
+          git add cyber_destrava.tar.gz
           git config user.name "CyberCamposBot"
           git config user.password "${{ secrets.CYBER_BOT_KEY }}"
           git config user.email "CyberCamposBot@users.noreply.github.com"
