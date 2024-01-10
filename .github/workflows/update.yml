@@ -46,7 +46,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git clone https://github.com/cybercampos/destrava-switch/
+          git clone https://github.com/cybercampos/destrava-switch/ .
           git add .
           git commit -m "Update CNX Pack"
           git push -u origin main
