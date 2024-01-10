@@ -16,8 +16,10 @@ jobs:
 
       - name: Initialize Git repository (if not exists)
         run: |
-          git init
-          git remote add origin https://github.com/AMSNX/CNX.git
+          if [ -z "$(git remote -v)" ]; then
+            git init
+            git remote add origin https://github.com/AMSNX/CNX.git
+          fi
 
       - name: Install dependencies
         run: |
