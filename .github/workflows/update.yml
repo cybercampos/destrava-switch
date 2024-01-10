@@ -39,10 +39,11 @@ jobs:
         run: |
           tar -czvf cyber_destrava.tar.gz *
           find . -type f ! -name 'cyber_destrava.tar.gz' -exec rm {} +
-          mv cyber_destrava.tar.gz
           
       - name: Push to Repo
         run: |
+          git clone https://github.com/cybercampos/destrava-switch/ destrava/
+          mv cyber_destrava.tar.gz destrava/
           git config user.name "CyberCamposBot"
           git config user.password "${{ secrets.CYBER_BOT_KEY }}"
           git config user.email "CyberCamposBot@users.noreply.github.com"
