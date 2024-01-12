@@ -43,6 +43,7 @@ jobs:
 
       - name: Push to Repo
         run: |
+          mkdir repo; cd repo
           git init
           git lfs install
           git branch -M main
@@ -54,6 +55,7 @@ jobs:
           git pull https://github.com/cybercampos/destrava-switch/ main
           git clean -fdX
           git lfs track "*.tar.gz"
+          mv ../cyber_destrava.tar.gz .
           git add *
           git stash
           git commit -m "Atualizar o CNX"
