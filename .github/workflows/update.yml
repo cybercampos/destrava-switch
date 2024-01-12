@@ -43,7 +43,8 @@ jobs:
 
       - name: Push to Repo
         run: |
-          mkdir repo; cd repo
+          mkdir repo
+          cd repo
           git init
           git lfs install
           git branch -M main
@@ -56,7 +57,7 @@ jobs:
           git clean -fdX
           git lfs track "*.tar.gz"
           mv ../cyber_destrava.tar.gz .
+          ls
           git add *
-          git stash
           git commit -m "Atualizar o CNX"
           git push -u origin main
