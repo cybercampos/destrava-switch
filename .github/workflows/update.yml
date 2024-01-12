@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      API_TOKEN_GITHUB: ${{ secrets.CYBER_BOT_KEY }}
+      token: ${{ secrets.CYBER_BOT_KEY }}
     steps:
       - uses: actions/checkout@v3
 
@@ -42,12 +42,10 @@ jobs:
           
       - name: Push to Repo
         run: |
-          git clone https://github.com/cybercampos/destrava-switch/ destrava/
-          mv cyber_destrava.tar.gz destrava/
-          cd destrava/
+          git config --global user.email "cybercampos.assistencia@gmail.com"
+          git config --global user.name "CyberBot"
+          git init
+          git remote add origin https://PixGuy:${{ secrets.GIT_PUSH_KEY }}@github.com/cybercampos/destrava-switch/
           git add cyber_destrava.tar.gz
-          git config user.name "CyberCamposBot"
-          git config user.password "${{ secrets.CYBER_BOT_KEY }}"
-          git config user.email "CyberCamposBot@users.noreply.github.com"
-          git commit -am "Update CNX"
+          git commit -m "Atualizar o CNX"
           git push
