@@ -52,6 +52,6 @@ jobs:
           git remote add origin https://PixGuy:${{ secrets.GIT_PUSH_KEY }}@github.com/cybercampos/destrava-switch/
           git pull https://github.com/cybercampos/destrava-switch/ main
           git lfs track "*.tar.gz"
-          git add cyber_destrava.tar.gz
+          git add *
           git commit -m "Atualizar o CNX"
           git push -u origin main
