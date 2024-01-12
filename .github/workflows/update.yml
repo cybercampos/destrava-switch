@@ -46,6 +46,7 @@ jobs:
           git init
           git lfs install
           git branch -M main
+          git clean  -d  -f .
           git config --global user.email "cybercampos.assistencia@gmail.com"
           git config --global user.name "CyberBot"
           git config --global init.default branch main
