@@ -37,6 +37,7 @@ jobs:
 
       - name: Compress everything
         run: |
+          rm cyber_destrava.tar.gz
           tar -czvf cyber_destrava.tar.gz *
           find . -type f ! -name 'cyber_destrava.tar.gz' -exec rm {} +
           
