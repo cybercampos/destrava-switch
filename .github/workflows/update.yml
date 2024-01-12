@@ -41,10 +41,6 @@ jobs:
           tar -czvf cyber_destrava.tar.gz *
           find . -type f ! -name 'cyber_destrava.tar.gz' -exec rm {} +
 
-      - name: Remove untracked files
-        run: |
-          git clean -fdX
-
       - name: Push to Repo
         run: |
           git init
@@ -55,6 +51,7 @@ jobs:
           git config --global init.default branch main
           git remote add origin https://PixGuy:${{ secrets.GIT_PUSH_KEY }}@github.com/cybercampos/destrava-switch/
           git pull https://github.com/cybercampos/destrava-switch/ main
+          git clean -fdX
           git lfs track "*.tar.gz"
           git add *
           git stash
