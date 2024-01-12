@@ -40,7 +40,11 @@ jobs:
           rm cyber_destrava.tar.gz
           tar -czvf cyber_destrava.tar.gz *
           find . -type f ! -name 'cyber_destrava.tar.gz' -exec rm {} +
-          
+
+      - name: Remove untracked files
+        run: |
+          git clean -fdX
+
       - name: Push to Repo
         run: |
           git init
