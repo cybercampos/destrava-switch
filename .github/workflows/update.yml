@@ -54,10 +54,8 @@ jobs:
           git config --global init.default branch main
           git remote add origin https://PixGuy:${{ secrets.GIT_PUSH_KEY }}@github.com/cybercampos/destrava-switch/
           git pull https://github.com/cybercampos/destrava-switch/ main
-          git clean -fdX
           git lfs track "*.tar.gz"
           mv ../cyber_destrava.tar.gz .
-          ls
           git add *
           git commit -m "Atualizar o CNX"
           git push -u origin main
