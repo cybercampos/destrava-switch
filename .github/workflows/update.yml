@@ -17,7 +17,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt install -y unzip jq
+          sudo apt install -y unzip jq git-lfs
 
       - name: Grab latest CNX Pack
         run: |
@@ -43,12 +43,14 @@ jobs:
       - name: Push to Repo
         run: |
           git init
+          git lfs install
           git branch -M main
           git config --global user.email "cybercampos.assistencia@gmail.com"
           git config --global user.name "CyberBot"
           git config --global init.default branch main
           git remote add origin https://PixGuy:${{ secrets.GIT_PUSH_KEY }}@github.com/cybercampos/destrava-switch/
           git pull https://github.com/cybercampos/destrava-switch/ main
+          git lfs track "*.tar.gz"
           git add cyber_destrava.tar.gz
           git commit -m "Atualizar o CNX"
           git push -u origin main
