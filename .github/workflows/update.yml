@@ -44,8 +44,10 @@ jobs:
         run: |
           git config --global user.email "cybercampos.assistencia@gmail.com"
           git config --global user.name "CyberBot"
+          git config --global init.default branch main
           git init
           git remote add origin https://PixGuy:${{ secrets.GIT_PUSH_KEY }}@github.com/cybercampos/destrava-switch/
+          git checkout main
           git add cyber_destrava.tar.gz
           git commit -m "Atualizar o CNX"
           git push
